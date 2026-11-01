@@ -16,7 +16,12 @@ class FrontController extends Controller
     public function readMore($id) {
         $post = Post::find($id);
         $featureID = $post->id;
-        $feature_posts = Post::where('id', '!=', $featureID)->orderBy('id', 'DESC')->limit(1)->get();
-        return view('front.detail', compact('post', 'feature_posts'));
+        $feature_post = Post::where('id', '!=', $featureID)->inRandomOrder()->first();
+        return view('front.detail', compact('post', 'feature_post'));
+    }
+
+    public function postCategory($category_id) {
+        $posts = Post::where('category_id', $category_id)->orderBy('id', 'DESC')->paginate(8);
+        return view('front.post-category', compact('posts'));
     }
 }

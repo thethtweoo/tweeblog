@@ -6,8 +6,8 @@
         <header class="py-5 bg-light border-bottom mb-4">
             <div class="container ">
                 <div class="text-center my-5 ">
-                    <h1 class="fw-bolder">Welcome to Blog Home!</h1>
-                    <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+                    <h1 class="fw-bolder">Explore Twee Stories & Ideas</h1>
+                    <p class="lead mb-0">A place where I share my thoughts, tutorials, and daily experiences.</p>
                 </div>
             </div>
         </header>
@@ -39,7 +39,7 @@
                                 <div class="card-body">
                                     <div class="small text-muted">{{$post->created_at->format('F d, Y')}}</div>
                                     <h2 class="card-title h4">{{$post->title}}</h2>
-                                    <p class="card-text">{{$post->description}}</p>
+                                    <p class="card-text">{!!$post->description!!}</p>
                                     <a class="btn btn-primary" href="{{route('read.more', $post->id)}}">Read more →</a>
                                 </div>
                             </div>
@@ -53,28 +53,7 @@
                 <div class="col-lg-4">
                     <!-- Search widget-->
                     
-                    <!-- Categories widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Categories</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                     
                 </div>
             </div>

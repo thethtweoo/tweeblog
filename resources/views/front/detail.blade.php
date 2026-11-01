@@ -13,7 +13,7 @@
                             <!-- Post title-->
                             <h1 class="fw-bolder mb-1">{{$post->title}}</h1>
                             <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">Posted on {{$post->created_at->format('F d, Y')}} by {{$post->user_id}}</div>
+                            <div class="text-muted fst-italic mb-2">Posted on {{$post->created_at->format('F d, Y')}} by {{$post->user->name}}</div>
                             <!-- Post categories-->
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
@@ -33,48 +33,23 @@
                     <!-- Related Post-->
                     <section class="mb-5">
                     <h2 class="fw-bolder mb-4">Feature Post</h2> 
-                    @foreach($feature_posts as $feature)   
+                    @if($feature_post) 
                         <div class="col-lg-6">
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="{{$feature->image}}" alt="..." /></a>
+                                <a href="#!"><img class="card-img-top" src="{{$feature_post->image}}" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">{{$feature->created_at->format('F d, Y')}}</div>
-                                    <h2 class="card-title h4">{{$feature->title}}</h2>
-                                    <p class="card-text">{{$feature->description}}</p>
-                                    <a class="btn btn-primary" href="{{route('read.more', $feature->id)}}">Read more →</a>
+                                    <div class="small text-muted">{{$feature_post->created_at->format('F d, Y')}}</div>
+                                    <h2 class="card-title h4">{{$feature_post->title}}</h2>
+                                    <p class="card-text">{{$feature_post->description}}</p>
+                                    <a class="btn btn-primary" href="{{route('read.more', $feature_post->id)}}">Read more →</a>
                                 </div>
                             </div>
                         </div>
-                    @endforeach    
+                    @endif  
                     </section>
                 </div>
-                <!-- Side widgets-->
-                <div class="col-lg-4">
+                
                     
-                    <!-- Categories widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Categories</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
             </div>
         </div>
 
